@@ -48,15 +48,70 @@
 // 7 9 6
 // 2 3
 #include <iostream>
+#include <utility>
 #include <vector>
 
 using namespace std;
 
-void addArrays(vector<int> &arr1, vector<int> &arr2) {}
+vector<int> addArrays(vector<int> &arr1, vector<int> &arr2) {
+  int n = arr1.size() - 1;
+  int m = arr2.size() - 1;
+  int carry = 0;
+  vector<int> answer;
+  while (n >= 0 && m >= 0) {
+    int sum = arr1[n] + arr2[m] + carry;
+    carry = sum / 10;
+    sum = sum % 10;
+    answer.push_back(sum);
+    n--;
+    m--;
+  }
+  while (n >= 0) {
+    int sum = arr1[n] + carry;
+    carry = sum / 10;
+    sum = sum % 10;
+    answer.push_back(sum);
+    n--;
+  }
+  while (m >= 0) {
+    int sum = arr2[m] + carry;
+    carry = sum / 10;
+    sum = sum % 10;
+    answer.push_back(sum);
+    m--;
+  }
+  while (carry != 0) {
+    int sum = carry;
+    carry = sum / 10;
+    sum = sum % 10;
+    answer.push_back(sum);
+  }
+  return answer;
+}
+void reverse_array(vector<int> &arr) {
+  int i = 0, j = arr.size() - 1;
+  while (i != j && i < j) {
+    swap(arr[i], arr[j]);
+    i++;
+    j--;
+  }
+}
 void print_array(vector<int> &arr) {
   for (int i = 0; i < arr.size(); i++) {
     cout << arr[i] << " ";
   }
   cout << endl;
 }
-int main() {}
+int main() {
+  vector<int> arr1 = {3, 4, 5};
+  vector<int> arr2 = {3, 4, 5};
+  cout << "The first array is =";
+  print_array(arr1);
+  cout << "The second array is =";
+  print_array(arr2);
+  cout << "The summed array is = ";
+  vector<int> answer = addArrays(arr1, arr2);
+  reverse_array(answer);
+  print_array(answer);
+  return 0;
+}
