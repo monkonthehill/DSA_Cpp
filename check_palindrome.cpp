@@ -17,32 +17,48 @@
 #include <iostream>
 #include <vector>
 using namespace std;
-bool checkpalindrome(vector<char> &str) {
+
+bool isAlpha(char c) {
+  return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z');
+}
+
+bool isDigit(char c) { return (c >= '0' && c <= '9'); }
+
+char toLowerCase(char c) {
+  if (c >= 'A' && c <= 'Z')
+    return c + ('a' - 'A');
+  return c;
+}
+
+bool checkPalindrome(const vector<char> &str) {
   int s = 0;
   int e = str.size() - 1;
+
   while (s < e) {
-    if (str[s] != str[e]) {
+    if (str[s] != str[e])
       return false;
-    }
     s++;
     e--;
   }
   return true;
 }
+
 int main() {
   vector<char> arr;
   char v;
-  cout << "Enter the string to check weather it is a palindrome or not :";
+
+  cout << "Enter the string: ";
 
   while (cin.get(v) && v != '\n') {
-    if (v != ' ')
-      arr.push_back(v);
+    if (isAlpha(v) || isDigit(v)) {
+      arr.push_back(toLowerCase(v));
+    }
   }
 
-  cout << "\n";
-  if (checkpalindrome(arr) == true) {
-    cout << "The string is palindrome !!";
-  } else {
-    cout << "The string is not a palindrome !!";
-  }
+  if (checkPalindrome(arr))
+    cout << "Palindrome\n";
+  else
+    cout << "Not Palindrome\n";
+
+  return 0;
 }
