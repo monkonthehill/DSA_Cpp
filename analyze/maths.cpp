@@ -14,6 +14,7 @@ struct stQuestion {
   int CorrectAnswer = 0;
   int UserAnswer = 0;
   bool AnswerResult = false;
+  // BUG:there is a bug;
 };
 
 struct stQuizz {

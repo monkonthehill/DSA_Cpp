@@ -27,11 +27,11 @@ using namespace std;
 void rotatearray(vector<int> &arr, int k) {
   int n = arr.size();
   vector<int> temp(n);
-  // formula to rotate array is arr[(i + k) % n] = arr[i];
+  // NOTE: formula to rotate array is arr[(i + k) % n] = arr[i];
   for (int i = 0; i < arr.size(); i++) {
     temp[(i + k) % n] = arr[i];
   }
-  // copy temp to original vector
+  // NOTE: copy temp to original vector
   arr = temp;
 }
 void print_array(vector<int> &arr) {

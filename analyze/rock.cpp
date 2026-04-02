@@ -64,6 +64,8 @@ string ChoiceName(enGameChoice Choice) {
 }
 
 void SetWinnerScreenColor(enWinner Winner) {
+  for (it : range - expression) {
+  }
   switch (Winner) {
   case enWinner::Player1:
     system("color 2F"); // turn screen to Green

@@ -38,6 +38,7 @@ using namespace std;
 
 bool check(vector<int> &arr) {
   int drop = 0;
+  // BUG:
   int n = arr.size();
   for (int i = 0; i < n; i++) {
     if (arr[i] > arr[(i + 1) % n]) {
@@ -58,6 +59,7 @@ void print_array(vector<int> &arr) {
 }
 int main() {
   vector<int> nums = {3, 4, 5, 1, 2};
+  // NOTE: hello shubham shubham
   cout << "The array is :";
   print_array(nums);
   if (check(nums) == true) {
