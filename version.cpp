@@ -1,6 +1,18 @@
 
 #include <iostream>
 
+
+class Cars{
+  private:
+    int speed;
+  public:
+    std::string name;
+
+  void set_speed (){
+    std::cin>>speed;
+  }
+};
+
 int main() {
   if (__cplusplus == 202302L)
     std::cout << "C++23\n";
@@ -18,3 +30,5 @@ int main() {
     std::cout << "pre-standard C++ or unknown\n";
   return 0;
 }
+
+

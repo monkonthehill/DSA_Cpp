@@ -5,7 +5,7 @@ int Sum(int arr[], int size)
 {
 
     int ans = 0;
-    if (size == 0)
+    if (0 == size)
     {
         return 0;
     }
