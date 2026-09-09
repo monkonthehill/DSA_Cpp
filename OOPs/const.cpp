@@ -10,6 +10,7 @@ void print_anything(const int &num2) { cout << num2; }
 class Player {
 private:
   int score = 0;
+  static int time;
 
 public:
   void addPoint() { score++; }           // Non-const function (modifies state)
